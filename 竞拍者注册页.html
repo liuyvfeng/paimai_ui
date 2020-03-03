@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="js/jq_ajax_config.js"></script>
+</head>
+
+<body>
+	
+<!--<div class="wrap">
+
+      <div class="zclf login logns">
+        <h1  class="blue">用户注册</h1>
+          <dl>
+            <dd>
+              <label> <small>*</small>用户名</label>
+              <input type="text" class="inputh lf" value="" />
+             <div class="lf red laba">用户名要求不低于6个字符</div>
+            </dd>
+            <dd>
+              <label> <small>*</small>密码</label>
+              <input type="text" class="inputh lf" value="" />
+              <div class="lf red laba">密码要求不低于6个字符</div>
+            </dd>
+            <dd>
+              <label> <small>*</small>身份证号</label>
+              <input type="text" class="inputh lf" value="" />
+              <div class="lf red laba">身份证号必填</div>
+            </dd>
+            <dd>
+              <label> <small>*</small>电话</label>
+              <input type="text" class="inputh lf" value="" />
+              <div class="lf red laba">电话号码必填</div>
+            </dd>
+            <dd>
+              <label> <small>*</small>住址</label>
+              <input type="text" class="inputh lf" value="" />
+            </dd>
+            <dd>
+              <label> <small>*</small>邮政编码</label>
+              <input type="text" class="inputh lf" value="" />
+            </dd>
+            <dd class="hegas">
+              <label> <small>*</small>验证码</label>
+              <input type="text" class="inputh inputs lf" value="" />
+               <span class="wordp lf"><img src="img/img2.jpg" width="96" height="27" alt="" /></span>
+               <span class="blues lf"><a href="" title="">看不清</a></span>
+            </dd>
+            <dd class="hegas">
+              <label>&nbsp;</label>
+               <input name=""  type="checkbox" id="rem_u"   />
+              <label for="rem_u" class="labels">我同意<span class="blues">《服务条款》</span></label>
+            </dd>
+            <dd class="hegas">
+              <label>&nbsp;</label>
+              <input name="" type="submit" value="立即注册" class="spbg buttombg buttombgs f14 lf" />
+            </dd>
+          </dl>
+    </div>
+
+
+</div>
+
+ 
+</div>-->
+
+
+<div id="addsApp">
+			  <el-row>
+					<div>
+				    <h2 style="color: #0096FF; float: left;">用户注册</h2>
+				  </div>
+			  </el-row>
+			<el-form :model="shopp" ref="shoppForm" :rules="shoppRules" label-width="100px">
+				<el-form-item label="用户名" prop="sno">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.sno" placeholder="请输入用户名"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="密码" prop="sname">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.sname" placeholder="请输入密码"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="身份证号" prop="sbiao">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.sbiao" placeholder="请输入身份证号"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="电话" prop="shao">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.shao" placeholder="请输入电话"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="住址" prop="sprice">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.sprice" placeholder="请输入住址"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="邮政编码" prop="simg">
+					<el-col :span="6">
+						<!--非常重要-->
+						<el-input v-model="shopp.simg" placeholder="请输入邮政编码"></el-input>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="验证码" prop="stext">
+					<el-col :span="4">
+						<!--非常重要-->
+						<el-input v-model="shopp.stext" placeholder="请输入验证码"></el-input>
+					</el-col>
+					<span class="wordp lf"><img src="img/img2.jpg" width="96" height="27" alt="" /></span>
+           			<span class="lf"><a href="" title="">看不清</a></span>
+				</el-form-item>
+				<el-form-item>
+					<el-col :span="4">
+						<input name=""  type="checkbox" id="rem_u"   />
+       			<label for="rem_u" class="labels">我同意<span class="blues">《服务条款》</span></label>
+					</el-col>
+				</el-form-item>
+        
+				<el-form-item>
+					<el-col :span="4">
+					<el-button type="primary" @click="adduser">立即注册</el-button>
+					</el-col>
+				</el-form-item>
+			</el-form>
+		</div>
+
+</body>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+		var addsApp=new Vue({
+			el:'#addsApp',
+			data:{
+				shopp:{
+					sno:'',
+					sname:'',
+					sbiao:'',
+					shao:'',
+					sprice:'',
+					simg:'',
+					stext:''
+					
+				},
+				shoppRules:{
+					sno: [{
+							required: true,
+							message: '用户名不能为空',
+							trigger: 'blur' //移除触发
+						}
+					],
+					sname: [{
+							required: true,
+							message: '请输入密码',
+							trigger: 'blur'
+						}
+					],
+					sbiao: [{
+						required: true,
+						message: '请输入身份证号',
+						trigger: 'blur'
+					}],
+					shao: [{
+						required: true,
+						message: '请输入电话',
+						trigger: 'blur'
+					}],
+					sprice: [{
+						required: true,
+						message: '请输入住址',
+						trigger: 'blur'
+					}],
+					simg: [{
+						required: true,
+						message: '请输入邮政编码',
+						trigger: 'blur'
+					}],
+					stext: [{
+						required: true,
+						message: '请输入验证码',
+						trigger: 'blur'
+					}]
+				}
+				
+				
+			},
+			methods: {
+				adduser() {
+					let _this = this;
+					this.$refs['shoppForm'].validate(valid => {
+						if(valid) {
+							//验证通过
+							//自定义加载块
+							
+						} else {
+							//验证失败
+							this.$alert('请按格式正确填写信息', '系统提示');
+						}
+					});
+				}
+			}
+		});
+	</script>
+
+</html>
